@@ -1,0 +1,1 @@
+comporte tout de même une partie câblée pour les tâches simples

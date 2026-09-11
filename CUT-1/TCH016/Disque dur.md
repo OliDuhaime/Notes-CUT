@@ -1,0 +1,4 @@
+- Les données sont coupées en petits morceaux sur le disque et le système de fichiers (SF) tient à jour un index des fichiers, leur emplacement sur le disque, les autorisations d’accès, leurs attributs.
+- Un disque a plusieurs pistes.
+- 2 connecteurs principaux pour brancher un disque dur : **IDE** (ATA ou PATA) et **SATA**.
+- **IDE** : présence de larges nappes gênant la circulation de l’air dans l’unité centrale (limitant le refroidissement des composants).

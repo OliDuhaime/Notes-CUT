@@ -1,0 +1,19 @@
+- **Mémoire Flash** : type de support de stockage de données non volatile pouvant être effacé et reprogrammé électriquement.
+- Flash USB (Clé USB) :
+	- Bonne solution pour le stockage des images d’installation des systèmes d’exploitation. 
+	- Rapides, fiables, résistants et peu coûteux.
+	- USB1 vs USB3 vs USB-c (Rapidité vs coût).
+	- Autres exemples : Carte SD, carte mémoires.
+- **Disques SSD** (Solid State Drives) : Solution alternative aux disques durs.
+	- Technologie haute performance des mémoires Flash pour stocker rapidement des données.
+	- Plus rapides et moins sujets aux problèmes physiques.
+	- Type «flash» : les données sont inscrites dans de petites cellules de mémoire au sein d’une puce. 
+	- Chaque cellule de mémoire peut être lue ou écrite avec le même délai, peu importe son positionnement sur la puce. 
+	- À côté de sa puce de mémoire flash, le SSD est équipé d’un contrôleur.
+- **Disques SSHD** (Solid State Hybrid Disks) 
+	- Moins coûteuse que les disques SSD. 
+	- Stockent les données sur un disque dur, mais une petite mémoire Flash est employée pour la mise en cache des données fréquemment utilisées. 
+	- Permet au SE de consulter les données fréquemment utilisées à des vitesses SSD, tandis que les autres données sont transférées à des vitesses semblables à celles des disques durs classiques
+- **Cartes eMMC** (Embedded MultiMediaCard) :
+	- Plus lentes et moins coûteuses que la technologie SSD. 
+	- Souvent utilisées dans les téléphones portables, les appareils photo numériques.
