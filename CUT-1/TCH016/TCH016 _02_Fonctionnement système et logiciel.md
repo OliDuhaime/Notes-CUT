@@ -20,8 +20,8 @@ session: Cours #2 - Session
 ### Principe de base d'un ordinateur
 
 > [!info] Composants de base d'un système informatique
-> - **Entrée** : récupération et codage de l'information
-> - **Unité de traitement** : traitement des informations
+> - **Entrée** : récupération et codage de l'information. Donne les informations au *UCT*
+> - **Unité de traitement** : traitement des informations. Commnunique avec les mémoires et donne un résultat à la sortie 
 > - **Mémoire** : stockage de l'information
 > - **Sortie** : fourniture et décodage de l'information
 
@@ -29,12 +29,12 @@ Un système informatique moderne comprend un ou plusieurs processeurs, de la mé
 
 ### Architecture en couches
 
-| Couche | Rôle |
-|---|---|
-| Utilisateurs | Interagissent avec l'ordinateur |
-| Applications | Logiciels utilisés par l'utilisateur (jeux, navigateurs, BD, etc.) |
-| Système d'exploitation | Interface entre applications/utilisateurs et le matériel |
-| Matériel | CPU, RAM, périphériques E/S |
+| Couche                 | Rôle                                                               |
+| ---------------------- | ------------------------------------------------------------------ |
+| Utilisateurs           | Interagissent avec l'ordinateur                                    |
+| Applications           | Logiciels utilisés par l'utilisateur (jeux, navigateurs, BD, etc.) |
+| Système d'exploitation | Interface entre applications/utilisateurs et le matériel           |
+| Matériel               | CPU, RAM, périphériques E/S                                        |
 
 > [!note] Deux catégories de logiciels
 > - **Logiciels de système** : anti-virus, compilateurs, etc.
@@ -52,12 +52,12 @@ La plupart des SE sont construits autour de la notion de noyau : un programme un
 
 ### Mode utilisateur vs mode noyau
 
-| Aspect | Mode utilisateur | Mode noyau |
-|---|---|---|
-| Accès matériel | Limité (mode restreint/esclave) | Complet (fonctions de confiance de bas niveau) |
-| Espace d'adressage | Propre à chaque processus | Espace du noyau |
-| Panne d'un processus | N'affecte pas le SE | — |
-| Accès aux ressources | Via requête au noyau (appel système) | Direct |
+| Aspect               | Mode utilisateur                     | Mode noyau                                     |
+| -------------------- | ------------------------------------ | ---------------------------------------------- |
+| Accès matériel       | Limité (mode restreint/esclave)      | Complet (fonctions de confiance de bas niveau) |
+| Espace d'adressage   | Propre à chaque processus            | Espace du noyau                                |
+| Panne d'un processus | N'affecte pas le SE                  | —                                              |
+| Accès aux ressources | Via requête au noyau (appel système) | Direct                                         |
 
 > [!note] Basculement de mode
 > Lorsqu'un processus en mode utilisateur nécessite une ressource matérielle (RAM, imprimante, etc.), il envoie une requête au noyau via un **appel système (syscall)**. Le processeur passe alors du mode utilisateur au mode noyau, exécute l'appel, puis repasse en mode utilisateur.
@@ -81,10 +81,10 @@ Parmi les fonctionnalités importantes :
 
 ### Interfaces utilisateur
 
-| Type d'interface | Description | Exemples |
-|---|---|---|
-| CLI (Command Line Interface) | Interpréteur de commande via un terminal | `sh`, `bash` (Linux), MS-DOS, PowerShell (Windows) |
-| GUI (Graphical User Interface) | Interface graphique | Windows 11 (Microsoft), GNOME (Linux) |
+| Type d'interface               | Description                              | Exemples                                                       |
+| ------------------------------ | ---------------------------------------- | -------------------------------------------------------------- |
+| CLI (Command Line Interface)   | Interpréteur de commande via un terminal | **sh**, **bash** (Linux), **MS-DOS**, **PowerShell** (Windows) |
+| GUI (Graphical User Interface) | Interface graphique                      | Windows 11 (Microsoft), GNOME (Linux)                          |
 
 L'interpréteur de commande constitue l'interface principale entre l'utilisateur et le SE. Le GUI peut être utilisé en complément.
 
@@ -162,6 +162,7 @@ Chaque processus possède un **PCB (Process Control Block)** qui inclut :
 Lorsqu'une interruption ou un appel système survient, le SE :
 1. Sauvegarde l'état du processus courant dans son PCB
 2. Recharge l'état du prochain processus depuis son PCB
+![[Pasted image 20260911105646.png|499]]
 
 > [!warning] Le changement de contexte est un coût
 > Pendant ce mécanisme, aucun des deux processus n'avance réellement (période "idle" pour chacun d'eux le temps de la sauvegarde/restauration).
@@ -192,6 +193,7 @@ Lorsqu'une interruption ou un appel système survient, le SE :
 
 > [!note] Multiprogrammation
 > Un processeur (cœur) ne peut exécuter qu'une seule instruction à la fois, mais il peut basculer constamment d'un processus à l'autre pour donner l'illusion d'exécution simultanée : c'est la **multiprogrammation**.
+> ![[Pasted image 20260911105506.png]]
 
 ### Critères d'un algorithme d'ordonnancement
 
@@ -342,13 +344,15 @@ La taille du programme, des données et de la pile peut dépasser la capacité d
 
 ### Mécanisme de va-et-vient (swapping)
 
-| Opération | Description |
-|---|---|
-| **Swap-out** | Lorsque le SE manque de RAM, il transfère des processus complets de la RAM vers le disque pour libérer de la mémoire |
-| **Swap-in** | Lorsqu'un processus précédemment transféré sur le disque est requis à nouveau, le SE le ramène de la mémoire secondaire vers la RAM |
+| Opération    | Description                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Swap-out** | Lorsque le SE manque de RAM, il transfère des processus complets de la RAM vers le disque pour libérer de la mémoire                |
+| **Swap-in**  | Lorsqu'un processus précédemment transféré sur le disque est requis à nouveau, le SE le ramène de la mémoire secondaire vers la RAM |
 
 > [!question] Mémoire virtuelle et swapping sont-ils la même chose ?
 > Non : la **mémoire virtuelle** est le concept qui permet à un processus de « voir » plus de mémoire qu'il n'y en a physiquement ; le **swapping** est le mécanisme concret (swap-in/swap-out) qui déplace les données entre RAM et disque pour réaliser ce concept.
+> ![[Pasted image 20260911114045.png]]
+> 
 
 ### ❓ Questions de révision
 
